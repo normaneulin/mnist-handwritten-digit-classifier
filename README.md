@@ -90,6 +90,21 @@ pip install -r requirements.txt
 
 ### Step 3: Launch the Web Application
 
+**Recommended Method (with virtual environment activation):**
+
+On Windows (PowerShell):
+```powershell
+C:\projects\dlenv\Scripts\Activate.ps1
+python -m streamlit run app.py
+```
+
+On Mac/Linux (Bash):
+```bash
+source env/bin/activate
+python -m streamlit run app.py
+```
+
+**Alternative (direct command if already activated):**
 ```bash
 streamlit run app.py
 ```
