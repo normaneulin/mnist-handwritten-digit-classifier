@@ -90,26 +90,27 @@ pip install -r requirements.txt
 
 ### Step 3: Launch the Web Application
 
-**Recommended Method (with virtual environment activation):**
-
-On Windows (PowerShell):
+**On Windows (PowerShell):**
 ```powershell
-C:\projects\dlenv\Scripts\Activate.ps1
+# Activate your virtual environment
+.\env\Scripts\Activate.ps1
+
+# Run the app
 python -m streamlit run app.py
 ```
 
-On Mac/Linux (Bash):
+**On Mac/Linux (Bash):**
 ```bash
+# Activate your virtual environment
 source env/bin/activate
-python -m streamlit run app.py
-```
 
-**Alternative (direct command if already activated):**
-```bash
-streamlit run app.py
+# Run the app
+python -m streamlit run app.py
 ```
 
 The app will open automatically at: http://localhost:8501
+
+**Note:** If you created venv at a different location (e.g., `C:\projects\dlenv`), activate it from that path instead, then navigate to the project directory and run the app.
 
 ---
 
