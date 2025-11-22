@@ -1,0 +1,49 @@
+TASK: Deploying a Trained Deep Learning Classifier as a Web Application
+
+Step 1: Prepare the Trained Model
+1. Identify the best CNN model based on its evaluation metrics.
+2. Save the model’s trained parameters as a file (for example, model_triple_input.pt).
+3. Ensure that a corresponding list of class labels is available and in the same order used during training.
+4. Verify that the model can successfully generate predictions when tested on sample images before proceeding to deployment.
+
+Step 2: Set Up the Deployment Environment
+1. Install a compatible Python environment on the computer that will host the application.
+2. Install the Streamlit framework, which allows machine-learning models to be turned into interactive web applications without the need for web-development languages such as HTML or JavaScript.
+3. Gather all required project files—such as the trained model, class-label list, and preprocessing utilities—into a single project folder.
+
+Step 3: Design the Application Interface
+1. Plan a simple user interface that includes:
+   - A sidebar panel containing the application title, a short description, and brief user instructions.
+   - A main panel containing:
+     - An image upload area that accepts .jpg, .jpeg, or .png files (via browsing or drag-and-drop).
+     - A “Predict” button that triggers the model to process the uploaded image.
+     - A results display area that presents:
+       - The top-1 predicted food class, highlighted in green to emphasize the model’s best prediction.
+       - A bar graph showing the top-5 predicted classes and their respective confidence scores.
+2. Keep the layout clear and intuitive so that users can upload an image and obtain results with minimal steps.
+
+Step 4: Integrate the Trained Model
+1. Configure the application to load the saved CNN model when it starts.
+2. Prepare a preprocessing routine that converts each uploaded image into the same format used during training (for example, resizing, normalization, and conversion into multiple input representations if the model uses RGB, edge, and HSV channels).
+3. Link the preprocessing stage, the model prediction stage, and the output display so that the full prediction pipeline runs automatically when the user clicks “Predict.”
+
+Step 5: Run the Streamlit Application
+1. Launch the application using the Streamlit command line interface.
+2. Once started, the app will automatically open in a web browser window at the default local address, such as http://localhost:8501.
+3. If it does not open automatically, copy the link shown in the terminal and paste it into any modern web browser (for example, Brave, Chrome, Edge, or Firefox).
+
+Step 6: Test the Application Functionality
+1. Upload a sample image to verify that the upload function works correctly.
+2. Click “Predict” and confirm that the model:
+   - Processes the image and returns a classification result.
+   - Displays the class with the highest confidence in green.
+   - Presents a bar chart of the top-5 predicted classes with their probability values.
+3. Check that images in .jpg, .jpeg, and .png formats are all accepted and processed properly.
+
+Step 7: Document the Deployment
+1. Capture screenshots of the following for inclusion in your report:
+   - The home page or landing page of the web app.
+   - The upload section, where the user selects an image.
+   - The results section shows the predicted class and the top-5 graph.
+2. Label and reference these screenshots appropriately (for example, Figure 3.8: User Interaction Flow, Figure 3.9: Home Page, Figure 3.10: Image Upload and Prediction Display).
+3. Briefly describe each figure to show how it demonstrates the model’s user interaction and interpretability, similar to the attached samples.
