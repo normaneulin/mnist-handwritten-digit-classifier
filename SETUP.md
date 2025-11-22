@@ -141,21 +141,9 @@ See **README.md** for:
 
 ---
 
-## Want to Retrain Models?
+## 🎓 Want to Retrain Models?
 
-First, extract the dataset:
-
-**Windows (PowerShell):**
-```powershell
-Expand-Archive -Path dataset.zip -DestinationPath dataset/
-```
-
-**Mac/Linux (Bash):**
-```bash
-unzip dataset.zip -d dataset/
-```
-
-Then open and run the Jupyter notebook:
+Open and run the Jupyter notebook:
 ```bash
 jupyter notebook colab/Deep_Learning_Model.ipynb
 ```

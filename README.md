@@ -81,7 +81,7 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-> **⚠️ Note on Windows Path Limits**: If you encounter path length errors during installation, create the venv at a shorter path:
+> **Note on Windows Path Limits**: If you encounter path length errors during installation, create the venv at a shorter path:
 > ```powershell
 > mkdir C:\projects\dlenv
 > python -m venv C:\projects\dlenv
@@ -147,22 +147,6 @@ The app will reload automatically and use the new model.
 ## Model Training (Optional)
 
 If you want to **retrain the models** from scratch:
-
-### Step 1: Extract Dataset
-
-The MNIST dataset is provided as a zip file to save space. Extract it first:
-
-```bash
-# Windows (PowerShell)
-Expand-Archive -Path dataset.zip -DestinationPath dataset/
-
-# Mac/Linux (Bash)
-unzip dataset.zip -d dataset/
-```
-
-This will extract `mnist_train.csv` and `mnist_test.csv` into the `dataset/` folder.
-
-### Step 2: Run Training Notebook
 
 1. **Open the notebook:**
    ```bash

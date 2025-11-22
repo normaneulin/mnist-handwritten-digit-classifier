@@ -312,7 +312,7 @@ By studying this project, you'll learn:
 
 ##  PROJECT HIGHLIGHTS
 
-🏆 **Achievement Unlocked**
+**Achievement Unlocked**
 - Trained 4 different deep learning models
 - Achieved 98.17% accuracy on MNIST
 - Built production-ready web application
@@ -337,7 +337,7 @@ This project is **complete, tested, and ready** for:
 -  Experimentation and research
 -  User demonstrations
 
-**Happy Classifying!** 🔢
+**Happy Classifying!**
 
 ---
 
