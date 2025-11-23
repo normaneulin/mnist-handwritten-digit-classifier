@@ -30,7 +30,7 @@ streamlit run app.py
 ### Prerequisites
 - Python 3.11+ installed
 - Git installed
-- ~200MB free disk space
+- ~100MB free disk space
 
 ### Clone Repository
 ```bash
@@ -77,18 +77,18 @@ Your browser will open to: http://localhost:8501
 
 ---
 
-## 🔄 Switch Between Models
+## Switch Between Models
 
 Edit line 100 in `app.py`:
 
 ```python
-# Current (Baseline CNN - 98.17%):
-model_path = "baseline_cnn.keras"
+model_path = "dnn_model.keras"
 
-# Or try:
-model_path = "dnn_dropout.keras"                # 94.91%
-model_path = "mobilenetv2_transfer.keras"       # 63.17%
-model_path = "resnet50_transfer.keras"          # 78.01%
+# Or try models from backup folder:
+model_path = "backup/baseline_cnn.keras"                
+model_path = "backup/dnn_dropout.keras"       
+model_path = "backup/mobilenetv2_transfer.keras"      
+model_path = "backup/resnet50_transfer.keras"      
 ```
 
 Save and the app reloads automatically!
@@ -123,32 +123,20 @@ streamlit run app.py --server.port 8502
 # Make sure you're in the correct directory:
 cd DL-Classifier-Web-Application
 
-# Check files exist:
-ls *.keras
+# Check file exists:
+ls dnn_model.keras
 ls class_labels.json
 ```
 
 ---
 
-## 📚 Full Documentation
+## Full Documentation
 
 See **README.md** for:
 - Complete feature list
 - Model architecture details
-- Training information
 - Deployment options
 - Technical details
-
----
-
-## 🎓 Want to Retrain Models?
-
-Open and run the Jupyter notebook:
-```bash
-jupyter notebook colab/Deep_Learning_Model.ipynb
-```
-
-Then run all cells to train 4 different models from scratch.
 
 ---
 

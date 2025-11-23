@@ -56,7 +56,7 @@ def export_models_from_notebook():
         ipython = get_ipython()
         user_ns = ipython.user_ns
     except:
-        print("❌ This script must be run in a Jupyter notebook!")
+        print("This script must be run in a Jupyter notebook!")
         return False
     
     exported_models = []
@@ -68,7 +68,7 @@ def export_models_from_notebook():
         
         # Get model from notebook kernel
         if model_var not in user_ns:
-            print(f"❌ Model '{model_var}' not found in notebook kernel")
+            print(f"Model '{model_var}' not found in notebook kernel")
             print(f"   Make sure you've trained all models in the notebook first!")
             continue
         
@@ -93,7 +93,7 @@ def export_models_from_notebook():
             })
             
         except Exception as e:
-            print(f"❌ Error saving {filename}: {e}")
+            print(f"Error saving {filename}: {e}")
     
     # Save class labels
     print(f"\n{'─' * 80}")
@@ -130,7 +130,7 @@ def export_models_from_notebook():
     return True
 
 if __name__ == "__main__":
-    print("\n🚀 RUNNING IN NOTEBOOK MODE")
+    print("\nRUNNING IN NOTEBOOK MODE")
     print("Add this to a cell in your notebook to export all models:")
     print("\n" + "─" * 80)
     print("from export_all_models import export_models_from_notebook")

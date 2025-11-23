@@ -98,8 +98,9 @@ Upload an image of a handwritten digit and the model will predict what digit it 
 @st.cache_resource
 def load_model_and_labels():
     """Load the trained model and class labels"""
+    model_path = "dnn_model.keras"
     # model_path = "baseline_cnn.keras"
-    model_path = "dnn_dropout.keras"
+    # model_path = "dnn_dropout.keras"
     # model_path = "mobilenetv2_transfer.keras"
     # model_path = "resnet50_transfer.keras"
     labels_path = "class_labels.json"
@@ -181,7 +182,7 @@ with col1:
     if uploaded_file is not None:
         # Display uploaded image
         image = Image.open(uploaded_file)
-        st.image(image, caption="Uploaded Image", use_column_width=True)
+        st.image(image, caption="Uploaded Image", use_container_width=True)
         
         # Store image for later use
         st.session_state.uploaded_image = image
@@ -195,7 +196,7 @@ with col2:
         if img.mode != 'L':
             img = img.convert('L')
         img_small = img.resize((28, 28), Image.Resampling.LANCZOS)
-        st.image(img_small, caption="Preprocessed 28×28 Image", use_column_width=True)
+        st.image(img_small, caption="Preprocessed 28×28 Image", use_container_width=True)
 
 # ============================================================================
 # PREDICTION BUTTON AND RESULTS

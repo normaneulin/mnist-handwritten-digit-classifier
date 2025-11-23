@@ -4,7 +4,7 @@ from PIL import Image, ImageDraw
 import json
 
 # Load model
-model = keras.models.load_model('baseline_cnn.keras')
+model = keras.models.load_model('dnn_dropout.keras')
 
 # Load class labels
 with open('class_labels.json', 'r') as f:
