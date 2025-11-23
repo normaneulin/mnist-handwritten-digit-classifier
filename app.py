@@ -167,36 +167,24 @@ def get_top_5_predictions(probabilities, labels):
 # IMAGE UPLOAD AND PREDICTION
 # ============================================================================
 
-col1, col2 = st.columns([1, 1], gap="large")
+st.subheader("Upload Image")
+st.markdown("Upload a handwritten digit image")
 
-with col1:
-    st.subheader("Upload Image")
-    st.markdown("Upload a handwritten digit image")
-    
-    uploaded_file = st.file_uploader(
-        "Choose an image...",
-        type=["jpg", "jpeg", "png"],
-        help="Upload an image of a handwritten digit"
-    )
-    
-    if uploaded_file is not None:
-        # Display uploaded image
+uploaded_file = st.file_uploader(
+    "Choose an image...",
+    type=["jpg", "jpeg", "png"],
+    help="Upload an image of a handwritten digit"
+)
+
+if uploaded_file is not None:
+    # Display uploaded image centered and constrained
+    col_left, col_center, col_right = st.columns([1, 2, 1])
+    with col_center:
         image = Image.open(uploaded_file)
         st.image(image, caption="Uploaded Image", use_container_width=True)
-        
-        # Store image for later use
-        st.session_state.uploaded_image = image
-
-with col2:
-    st.subheader("Preview (28×28)")
-    st.markdown("How the model sees the image")
     
-    if "uploaded_image" in st.session_state:
-        img = st.session_state.uploaded_image
-        if img.mode != 'L':
-            img = img.convert('L')
-        img_small = img.resize((28, 28), Image.Resampling.LANCZOS)
-        st.image(img_small, caption="Preprocessed 28×28 Image", use_container_width=True)
+    # Store image for later use
+    st.session_state.uploaded_image = image
 
 # ============================================================================
 # PREDICTION BUTTON AND RESULTS
