@@ -202,35 +202,34 @@ with col_center_btn:
     predict_button = st.button("Predict Digit", type="primary", use_container_width=True)
 
 if predict_button:
-    if "uploaded_image" not in st.session_state:
-        st.error("Please upload an image first")
-    else:
-        # Load model and labels
-        model, labels = load_model_and_labels()
-        
-        if model is None or labels is None:
-            st.error("Could not load model or labels")
+    # Center error messages and all prediction content
+    col_left_pred, col_center_pred, col_right_pred = st.columns([1, 2, 1])
+    
+    with col_center_pred:
+        if "uploaded_image" not in st.session_state:
+            st.error("Please upload an image first")
         else:
-            # Preprocess image
-            img_array, processed_img = preprocess_image(st.session_state.uploaded_image)
+            # Load model and labels
+            model, labels = load_model_and_labels()
             
-            # Make prediction
-            with st.spinner("Analyzing digit..."):
-                probabilities = model.predict(img_array, verbose=0)
-            
-            # Get predictions
-            predicted_class = labels[np.argmax(probabilities[0])]
-            confidence = np.max(probabilities[0])
-            top_5 = get_top_5_predictions(probabilities, labels)
-            
-            # Display results - centered and constrained
-            col_left_sep2, col_center_sep2, col_right_sep2 = st.columns([1, 2, 1])
-            with col_center_sep2:
+            if model is None or labels is None:
+                st.error("Could not load model or labels")
+            else:
+                # Preprocess image
+                img_array, processed_img = preprocess_image(st.session_state.uploaded_image)
+                
+                # Make prediction
+                with st.spinner("Analyzing digit..."):
+                    probabilities = model.predict(img_array, verbose=0)
+                
+                # Get predictions
+                predicted_class = labels[np.argmax(probabilities[0])]
+                confidence = np.max(probabilities[0])
+                top_5 = get_top_5_predictions(probabilities, labels)
+                
+                # Separator before results
                 st.markdown("---")
-            
-            col_left_result, col_center_result, col_right_result = st.columns([1, 2, 1])
-            
-            with col_center_result:
+                
                 # Top-1 Prediction (in green box)
                 st.markdown(
                     f'<div class="prediction-success">Predicted Digit: <span class="confidence-high">{predicted_class}</span></div>',
@@ -271,9 +270,7 @@ if predict_button:
                     st.metric("Confidence", f"{confidence*100:.1f}%")
                 with col_info3:
                     next_best = top_5[1][0] if len(top_5) > 1 else "N/A"
-                    st.metric("Second Best", next_best)
-
-# ============================================================================
+                    st.metric("Second Best", next_best)# ============================================================================
 # FOOTER
 # ============================================================================
 
